@@ -737,7 +737,7 @@ export default class DOMAssertions {
    * @private
    * @returns (HTMLElement|null) a valid HTMLElement, or null
    */
-  private findTargetElement(): Element | null {
+  private findTargetElement(): HTMLElement | null {
     let el = this.findElement();
 
     if (el === null) {
@@ -755,14 +755,14 @@ export default class DOMAssertions {
    * @returns (HTMLElement|null) a valid HTMLElement, or null
    * @throws TypeError will be thrown if target is an unrecognized type
    */
-  private findElement(): Element | null {
+  private findElement(): HTMLElement | null {
     if (this.target === null) {
       return null;
 
     } else if (typeof this.target === 'string') {
       return this.rootElement.querySelector(this.target);
 
-    } else if (this.target instanceof Element) {
+    } else if (this.target instanceof HTMLElement) {
       return this.target;
 
     } else {
